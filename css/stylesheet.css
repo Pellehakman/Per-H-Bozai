@@ -1,0 +1,557 @@
+/* -------------------- Things before START --------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&family=Spartan:wght@300;500&display=swap');
+
+*{margin: 0;}
+*{box-sizing: border-box;}
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bg-light-grey);
+}
+
+.grid{
+    display: grid;
+}
+
+.flex{
+    display: flex;
+}
+
+li, a{
+    list-style: none;
+    text-decoration: none;
+}
+
+a {color: inherit;}
+
+:root{
+    --bg-white: white;
+    --bg-light-grey: #E5E5E5;
+    --bg-med-grey: #383838;
+    --bg-dark-grey: #272727;
+    --bg-darker-grey: #1a1a1a;
+    --bg-black: #000000;
+    --bg-light-red: #CBA9A9;
+    --bg-med-red:#C97B7B;
+    --bg-dark-red: #8B3737;
+    --bg-yellow: #FFF177;
+    --bg-dark-yellow: #cec35f;
+    
+    --fs-nav-reg: 17px;
+    --fs-nav-big: 20px;
+    --fs-art-big: 32px;
+    --fs-s: 9px;
+    --fs-m: 12px;
+    --fs-l: 16px;
+    --fs-title: 50px;
+
+    --fw-l: 300;
+    --fw-m: 500;    
+    --fw-h: 500;
+
+    --ff-spartan: 'Spartan';
+    --ff-maven-pro: 'Maven Pro';
+}
+
+
+/* -------------------- Things before END --------------------*/
+.wrapper{  
+      
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+    'nav nav nav nav nav nav nav nav'
+    '. hero hero hero hero hero hero .'
+    ' . search search search search search search .'
+    '. main main main main main main .'    
+    'foot foot foot foot foot foot foot foot';
+}
+
+/*------------------------- MENU START ------------------------- */
+
+.nav{    
+    grid-area: nav;
+    justify-content: center;
+    height: 3rem;    
+}
+
+.nav__box{
+    width: 100%;
+    background-color: var(--bg-dark-grey);
+}
+
+.nav__logo{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--bg-dark-grey);
+}
+
+.nav__logo img{
+    width: 2rem;
+}
+
+.nav__logo p{
+    color: white;
+    font-family: var(--ff-maven-pro);
+    padding: 0px 1rem 0 1rem;    
+}
+
+.nav__item{      
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--bg-dark-grey);
+}
+
+.nav__item span{
+    font-size: var(--fs-nav-reg);
+    font-family: var(--ff-spartan);
+    font-weight: var(--fw-p);
+    color: white;
+    text-align: center;
+}
+
+:hover.nav__item{    
+    position: relative;   
+    background-color: var(--bg-darker-grey);
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+    animation: drop-menu 20ms forwards linear;    
+}
+
+:hover.nav__item span{  
+    transition: 20ms;  
+    font-size: var(--fs-nav-big);
+}
+
+@keyframes drop-menu{
+    from{
+        height: 3rem;
+    }
+    to{
+        height: 3.5rem;
+    }
+}
+
+/*------------------------- MENU END ------------------------- */
+
+/*------------------------ HERO START ------------------------ */
+
+.hero{
+    grid-area: hero ;
+    background-color: var(--bg-light-grey);    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;     
+}
+
+.hero__h1{
+    margin: 4rem 0 1rem 0;    
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-title);
+    text-align: center;
+}
+
+.hero__p{
+    font-family: var(--ff-spartan);      
+    padding: 2rem 0 2rem 0;
+    text-align: center;
+}
+
+/*------------------------ HERO END ------------------------ */
+
+/*------------------------ SEARCH START ------------------------ */
+
+.search{    
+    grid-area: search;
+    background-color: var(--bg-darker-grey);    
+    align-items: center;
+    padding: 2rem 0 2rem 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2px;
+}
+
+label{
+    color: white;
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-m);
+}
+.search input{
+    font: inherit;
+    padding: 1rem;
+}
+
+.search__location,
+.search__quantity, 
+.search__arrive, 
+.search__leave{
+    flex-direction: column; 
+}
+
+.city__input--font,
+.quantity__input--font,
+input[type=date]
+{
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-m);
+}
+.search__button{ 
+    margin-top: .9rem;      
+    padding: .5rem 3rem .5rem 3rem;
+    border: none; 
+    background-color: var(--bg-yellow);
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-m);    
+}
+
+/*------------------------- SEARCH END ------------------------- */
+
+/*----------------------- MAIN START ----------------------- */
+.main {    
+    grid-area: main;    
+    flex-wrap: wrap;
+}
+
+.header__title{
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-art-big);
+    font-weight: var(--fw-m);
+    color: var(--bg-white);
+    background-color: var(--bg-dark-grey);
+    height: 4rem;
+    width: 26rem;
+    line-height: 4rem;
+    text-align: center;   
+}
+
+.rate{    
+    margin: .5rem 0 0 2rem;
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-s);
+    font-weight: var(--fw-m);
+    color: var(--bg-white);
+    align-items: center;    
+    background-color: rgba(0, 0, 0, 0.2);
+    max-width: 15rem;
+}
+
+.rate span{
+    padding-left: .5rem;    
+}
+
+.rate img{
+    padding-left: .2rem;
+}
+
+.info__p{ 
+    margin: 1.5rem 5rem 9rem 2rem;
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-m);
+    font-weight: var(--fw-l);
+    line-height: 196%;
+    color: var(--bg-white);
+    max-width: 20rem;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.room__button span{
+    margin: 0 0 0 2rem;
+    padding: .5rem 3rem .5rem 3rem;
+    border: none; 
+    background-color: var(--bg-yellow);
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-m);
+}
+
+.price__p{    
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-s);
+    font-weight: var(--fw-m);
+    color: var(--bg-white);
+    margin: 1.5rem 0 0 2rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    max-width: 7rem;    
+}
+
+.room-single {      
+    background: url(/pics/01-day.jpg) ;          
+}
+.room-double {       
+    background: url(/pics/02-day.jpg);    
+}
+.room-triple{     
+    background: url(/pics/03-day.jpg);     
+}
+.room-family{    
+    background: url(/pics/04-day.jpg);    
+}
+.room-apartment {       
+    background: url(/pics/05-day.jpg);    
+}
+.room-suite {     
+    background: url(/pics/06-night.jpg);    
+}
+.work{    
+    background: url(/pics/workout.jfif);      
+}
+.event{    
+    background: url(/pics/07-night.jpg);      
+}
+.tips{      
+    background-color: var(--bg-black);    
+}
+
+.tip__1{
+    margin: 1rem 1rem .5rem 1rem;
+    border: var(--bg-dark-grey) solid 1px;
+    padding: 1rem;
+}
+
+.tip__1--h2{
+    color: var(--bg-white);
+    font-family: var(--ff-spartan);
+    font-size:var(--fs-l);
+    font-weight: var(--fw-l);  
+    margin-bottom: 1rem;  
+}
+.tip__1--p{
+    color: var(--bg-white);
+    font-family: var(--ff-spartan);
+    font-size:var(--fs-m);
+    font-weight: var(--fw-l);   
+    margin-bottom: 1rem; 
+}
+.tip__btn span{    
+    padding: .5rem 3rem .5rem 3rem;
+    border: none; 
+    background-color: var(--bg-yellow);
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-m);
+}
+
+.event{    
+    flex:1;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: rgb(124, 148, 114); 
+    padding: 2rem 0 0 0; 
+    border: 2px solid var(--bg-light-grey);
+}
+.om{    
+    background: url(/pics/08-night.jpg) ;     
+}
+
+.contact{    
+    background-color: rgb(124, 148, 114);     
+}
+
+.contact__p{    
+    margin: .5rem 0 .5rem 0;
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-m);
+    font-weight: var(--fw-l);
+    line-height: 196%;
+    color: var(--bg-white);
+    }
+
+#fname, #lname, #city, #message {
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-m);
+}
+
+.contact__form{
+    margin: 1rem 0 0 2rem;
+    flex-wrap: wrap;
+    width: 17rem;
+}
+
+.contact__form--fname{    
+    flex-direction: column;      
+}
+
+.contact__form--lname{    
+    flex-direction: column;    
+}
+.contact__form--city{    
+    flex-direction: column;    
+}
+.contact__form--message{
+    flex-direction: column;
+    margin: 0 0 1rem 0;
+}
+
+.contact__button span{    
+    padding: .5rem 3rem .5rem 3rem;
+    border: none; 
+    background-color: var(--bg-yellow);
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-m);
+}
+
+/*----------- BOOKING START -----------*/
+
+.booking{ 
+    background-color: rgb(45, 48, 44);    
+}
+
+.booking__row-1{
+    flex-direction: column;
+    margin: 2rem 3rem 2rem 2rem;    
+}
+
+.booking__row-1--p{
+    background-color: var(--bg-white);
+    font-family: var(--ff-spartan);
+    color: var(--bg-black);
+    margin: 0 0 .5rem .5rem;
+    font-size:var(--fs-m);
+    line-height: 2rem;
+    padding: 0 0 0 .5rem;
+    border-radius: 4px;
+}
+
+.final{     
+    background-color: rgb(141, 168, 132);      
+}
+
+#fname, #lname, #city, #message {
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-m);    
+}
+    
+.final__form{
+    margin: 0 0 0 2rem;
+    flex-wrap: wrap;
+    width: 17rem;
+}
+
+.final__form--fname{    
+    flex-direction: column;      
+}
+
+.final__form--lname{    
+    flex-direction: column;    
+}
+
+.final__form--email{    
+    flex-direction: column;    
+}
+
+.final__form--phone{    
+    flex-direction: column;    
+}
+
+.final__form--message{
+    flex-direction: column;
+    margin: 0 0 .5rem 0;
+}
+
+.final__button{
+    margin: 0 0 2.5rem 0;
+}
+
+.final__button span{    
+    padding: .5rem 3rem .5rem 3rem;         
+    border: none; 
+    background-color: var(--bg-yellow);
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-m);
+}
+
+/*------------ BOOKING END ------------*/
+
+/*------------------------ MAIN END ------------------------ */
+
+/*----------------------- FOOTER END ----------------------- */
+
+.footer{       
+    grid-area: foot;
+    margin-top: 1px;
+    flex-direction: column; 
+    background-color: var(--bg-darker-grey);
+    height: 20rem;    
+    align-items: center;
+    justify-content: center;
+}
+
+.info__footer{     
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-m);
+    font-weight: var(--fw-l);
+    line-height: 160%;
+    color: var(--bg-white);
+    max-width: 20rem;   
+}
+
+.room-single, 
+.room-double, 
+.room-triple, 
+.room-family, 
+.room-apartment,
+.room-suite,
+.work,
+.tips,
+.event,
+.contact,
+.booking,
+.final,
+.om{
+height: 29rem; 
+flex:1; 
+flex-wrap: wrap;
+flex-direction: column;    
+padding: 2rem 0 0 0;
+background-size: 55rem;
+background-repeat: no-repeat;
+background-position: center;
+border: 2px solid var(--bg-light-grey);
+}
+
+/*----------------------- FOOTER END ----------------------- */
+
+/*----------------- CELLPHONE VIEW START ------------------- */
+@media screen and (max-width:768px) {
+    .wrapper{  
+    
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+    'nav'
+    'hero'
+    'search'
+    'main'    
+    'foot';
+    }   
+
+.nav__logo, .nav__box{
+    display: none;
+}
+.header__title{
+    margin: 0 auto;
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-art-big);
+    font-weight: var(--fw-m);
+    color: var(--bg-white);
+    background-color: var(--bg-dark-grey);
+    height: 4rem;    
+    line-height: 4rem;
+    text-align: center;   
+}
+
+.header__title{
+    font-family: var(--ff-spartan);
+    font-size: var(--fs-art-big);
+    font-weight: var(--fw-m);
+    color: var(--bg-white);
+    background-color: var(--bg-dark-grey);
+    height: 4rem;
+    width: 23rem;
+    line-height: 4rem;
+    text-align: center;
+}
+}
+/*------------------ CELLPHONE VIEW END -------------------- */
